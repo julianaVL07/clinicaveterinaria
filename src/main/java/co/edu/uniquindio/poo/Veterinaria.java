@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Veterinaria {
     private String nombre;
@@ -132,6 +133,19 @@ public class Veterinaria {
     
         }
 
-    
-    
+        public LinkedList<Leon> leonPesoMenor(){
+            LinkedList<Leon>leonPesoRequisito=new LinkedList<>();
+            for (Leon leon:leones){
+                if(leon.getPeso()<300.00){
+                    leonPesoRequisito.add(leon);
+                }
+            }
+            return leonPesoRequisito;
+        } 
+        
+        public static int ingresarEntero(String mensaje){
+            Scanner scanner=new Scanner(System.in);
+            System.out.println(mensaje);
+            return scanner.nextInt();
+        }
 }

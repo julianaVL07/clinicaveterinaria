@@ -8,6 +8,7 @@ public class Leon extends AnimalSalvaje {
         super(nombre, edad, peso, alimentacion);
         this.melena = melena;
         this.habitat = habitat;
+        assert peso>=0.0;
     }
 
     public String getMelena() {
@@ -36,7 +37,13 @@ public class Leon extends AnimalSalvaje {
         System.out.println("\nEl león " + nombre+" está cazando "+presa);
     }
 
+    @Override 
+    public void comer(){
+        Veterinaria.mostrarMensaje("El león come a las 11PM");
+    }
     
-    
-    
+    @Override
+    public void comportamientoInstintivo(){
+        Veterinaria.mostrarMensaje("El león caza y es agresivo");
+    }
 }

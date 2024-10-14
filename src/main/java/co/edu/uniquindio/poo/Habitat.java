@@ -62,5 +62,15 @@ public class Habitat {
 
     }
 
+    public LinkedList<Aguila> aguilaNombre(String nombre){
+        LinkedList<Aguila> aguilaNombre=new LinkedList<>();
+        for (Aguila aguila:aguilas){
+            if (aguila.getNombre().equals(nombre)){
+                aguilaNombre.add(aguila);
+            }
+        }
+        return aguilaNombre;
+    }
+
     
 }

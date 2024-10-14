@@ -88,5 +88,13 @@ public class Dueno {
 
     }
 
-    
+    public LinkedList<Gato> gatosMayores5(){
+        LinkedList<Gato> gatosEdad=new LinkedList<>();
+        for (Gato gato:gatos){
+            if (gato.getEdad()>5){
+                gatosEdad.add(gato);
+            }
+        }
+        return gatosEdad;
+    }   
 }

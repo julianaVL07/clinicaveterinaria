@@ -10,6 +10,8 @@ public class Gato extends AnimalDomestico {
         super(nombre, edad, peso, fechaNacimiento);
         ColorPelaje = colorPelaje;
         this.dueno = dueno;
+        assert !nombre.isBlank();
+        assert !colorPelaje.isBlank();
     }
 
     public String getColorPelaje() {
@@ -34,7 +36,15 @@ public class Gato extends AnimalDomestico {
                 + ", fechaNacimiento=" + fechaNacimiento + ", dueño=" + dueno.getNombre();
     }
 
+    @Override
+    public void comer(){
+        Veterinaria.mostrarMensaje("El gato come a las 12:30PM");
+    }
     
+    @Override
+    public void cuidadosFrecuentes(){
+        Veterinaria.mostrarMensaje("El gato necesita que le cambien la arena y lo peinen");
+    }
     
 
 

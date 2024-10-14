@@ -10,6 +10,7 @@ public class Canario extends AnimalDomestico {
         super(nombre, edad, peso, fechaNacimiento);
         this.tamano = tamano;
         this.dueno = dueno;
+        assert !nombre.isBlank();
     }
 
     public int getTamano() {
@@ -34,5 +35,14 @@ public class Canario extends AnimalDomestico {
                 + ", fechaNacimiento=" + fechaNacimiento + ", dueño=" + dueno.getNombre();
     }
 
+    @Override
+    public void comer(){
+        Veterinaria.mostrarMensaje("El canario come a las 2PM");
+    }
+
+    @Override
+    public void cuidadosFrecuentes(){
+        Veterinaria.mostrarMensaje("El canario necesita que le den gusanos y lo besen");
+    }
     
 }

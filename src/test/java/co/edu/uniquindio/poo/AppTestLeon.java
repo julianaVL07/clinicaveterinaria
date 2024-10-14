@@ -7,6 +7,8 @@
  */
 package co.edu.uniquindio.poo;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.logging.Logger;
 import org.junit.jupiter.api.Test;
@@ -19,9 +21,26 @@ public class AppTestLeon {
 
      //Pruebas clase León
     @Test
-    public void shouldAnswerWithTrue() {
-        LOG.info("Iniciado test shouldAnswerWithTrue");
-        assertTrue(true);
-        LOG.info("Finalizando test shouldAnswerWithTrue");
+    public void datosIguales() {
+        LOG.info("Iniciado test datos Iguales");
+
+        Leon leon1 = new Leon("Simba", 5, 190.5, "Carnivoro", "Espesa", null);
+
+        assertEquals("Espesa", leon1.getMelena());
+
+        LOG.info("Finalizando test datos iguales");
     }
+
+    @Test
+    public void pesoNegativo() {
+        LOG.info("Iniciado test peso Negativo");
+
+        Leon leon2 = new Leon("Mufasa", 8, 210.3, "Carnivoro", "Grande", null);
+
+        assertThrows(Throwable.class, ()-> new Leon("Mufasa", 8, -207.5, "Carnivoro", "Grande", null));
+
+        LOG.info("Finalizando test peso Negativo");
+    }
+
+
 }

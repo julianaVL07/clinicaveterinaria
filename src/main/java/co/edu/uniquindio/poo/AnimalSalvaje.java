@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo;
 
-public class AnimalSalvaje extends Animal {
+public abstract class AnimalSalvaje extends Animal {
     public String alimentacion;
 
     public AnimalSalvaje(String nombre, int edad, double peso, String alimentacion) {
@@ -16,7 +16,6 @@ public class AnimalSalvaje extends Animal {
         this.alimentacion = alimentacion;
     }
     
-    public static void comportamientoInstintivo(String animal, String nombre, String comportamiento){
-        System.out.println("\nEl animal Salvaje: " +animal+" con nombre " +nombre+" tiene instintos de "+comportamiento);
-    }
+    public abstract void comportamientoInstintivo();
+
 }

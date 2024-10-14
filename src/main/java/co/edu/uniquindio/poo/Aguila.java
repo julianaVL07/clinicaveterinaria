@@ -8,6 +8,7 @@ public class Aguila extends AnimalSalvaje {
         super(nombre, edad, peso, alimentacion);
         this.alas = alas;
         this.habitat = habitat;
+        assert edad>0;
     }
 
     public String getAlas() {
@@ -34,5 +35,15 @@ public class Aguila extends AnimalSalvaje {
 
     public static void distanciaRecorrida(String nombre, double distancia){
         System.out.println("\nEl águila "+nombre+ " recorrió una distancia de "+distancia+" km");
+    }
+
+    @Override
+    public void comer(){
+        Veterinaria.mostrarMensaje("El águila come a la 1PM");
+    }
+
+    @Override
+    public void comportamientoInstintivo(){
+        Veterinaria.mostrarMensaje("El águila recorre largas distancias y abre sus alas");
     }
 }

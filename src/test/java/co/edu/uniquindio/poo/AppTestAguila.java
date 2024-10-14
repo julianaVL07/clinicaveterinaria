@@ -7,6 +7,8 @@
  */
 package co.edu.uniquindio.poo;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.logging.Logger;
 import org.junit.jupiter.api.Test;
@@ -19,9 +21,27 @@ public class AppTestAguila {
 
      //Pruebas clase Águila
     @Test
-    public void shouldAnswerWithTrue() {
-        LOG.info("Iniciado test shouldAnswerWithTrue");
-        assertTrue(true);
-        LOG.info("Finalizando test shouldAnswerWithTrue");
+    public void datosIguales() {
+        LOG.info("Iniciado test datos iguales");
+
+        Aguila aguila1 = new Aguila("Real", 3, 4.5, "Carnivoro", "Amplias", null);
+
+        assertEquals("Real", aguila1.getNombre());
+
+        LOG.info("Finalizando test datos iguales");
     }
+
+    @Test 
+    public void edadNegativa(){
+        LOG.info("Iniciado test edad negativa");
+
+        Aguila aguila1 = new Aguila("Real", 3, 4.5, "Carnivoro", "Amplias", null);
+
+        assertThrows(Throwable.class, ()-> new Aguila("Real",-3, 4.5, "Carnivoro", "Amplias", null));
+
+        LOG.info("Finalizando test edad negativa");
+    }
+
+
+
 }

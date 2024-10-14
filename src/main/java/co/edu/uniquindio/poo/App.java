@@ -103,14 +103,113 @@ public class App {
         //mostrar veterinaria
         Veterinaria.mostrarMensaje(veterinaria.toString());
 
-        //Metodos clases
-        Animal.comer("perro","Rex", "Croquetas");
-        Animal.dormir("León", "Simba", "8 Horas");
+        //Metodos clases - abstractas 
+        perro1.comer();
+        perro1.cuidadosFrecuentes();
+        perro1.dormir();; //este es estático
 
-        AnimalDomestico.cuidadosFrecuentes("Gato", "Luna", "paseos diarios y alimentación regular");
-        AnimalSalvaje.comportamientoInstintivo("león", "Simba","caza y es rápido");
+        gato1.comer();
+        gato1.cuidadosFrecuentes();
 
-        Leon.cazar("Mufasa", "una cebra");
-        Aguila.distanciaRecorrida("Real", 60.8);
+        canario1.comer();
+        canario1.cuidadosFrecuentes();
+
+        leon1.comer();
+        leon1.comportamientoInstintivo();
+
+        aguila1.comer();
+        aguila1.comportamientoInstintivo();
+        
+        //Metodos clases - estáticas
+        Animal.dormir();
+
+        boolean menu= true;
+        while (menu){
+            Veterinaria.mostrarMensaje("Bienvenidos;\n");
+            int animalSeleccionado= Veterinaria.ingresarEntero("Selección la mascota: \n1.Perro \n2.Gato \n3.Canario \n4.León \n5.Águila \n6.Salir del programa\n");
+
+            switch (animalSeleccionado) {
+                case 1:
+                    Veterinaria.mostrarMensaje("Ha seleccionado el perro "+perro1.getNombre());
+                    interaccionDomestico(perro1);
+                    break;
+                case 2:
+                    Veterinaria.mostrarMensaje("Ha seleccionado el gato "+gato1.getNombre());
+                    interaccionDomestico(gato1);
+                    break;
+                case 3:
+                    Veterinaria.mostrarMensaje("Ha seleccionado el gato "+canario1.getNombre());
+                    interaccionDomestico(canario1);
+                    break;
+                case 4:
+                    Veterinaria.mostrarMensaje("Ha seleccionado el gato "+leon1.getNombre());
+                    interaccionSalvaje(leon1);
+                    break;
+                case 5:
+                    Veterinaria.mostrarMensaje("Ha seleccionado el gato "+aguila1.getNombre());
+                    interaccionSalvaje(aguila1);
+                    break;
+                case 6:
+                    menu=false;
+                    Veterinaria.mostrarMensaje("Saliendo del programa...");
+                    break;
+                default:
+                    Veterinaria.mostrarMensaje("Error, ingrese una opción válida");
+                    break;
+            }
+            
+            Veterinaria.mostrarMensaje("-----------------------------");
+        }   
+    }
+    public static void interaccionDomestico(AnimalDomestico animalDomestico){
+        boolean menuInteraccion=true;
+        while(menuInteraccion){
+            int acciones=Veterinaria.ingresarEntero("Seleccione una de las siguientes opciones que quiere que haga "+animalDomestico.getNombre()+"\n1.Dormir \n2.Comer \n3.cuidados frecuentes \n4.Volver al menú principal\n");
+
+            switch (acciones) {
+                case 1:
+                    animalDomestico.dormir(); 
+                    break;
+                case 2:
+                    animalDomestico.comer();
+                    break;
+                case 3:
+                    animalDomestico.cuidadosFrecuentes();
+                case 4:
+                    menuInteraccion=false;
+                    Veterinaria.mostrarMensaje("Volviendo al menú principal...");
+                    break;
+                default:
+                    Veterinaria.mostrarMensaje("Error, ingrese una opción válida");
+                    break;
+            }
+        }
+
+    }
+    public static void interaccionSalvaje(AnimalSalvaje animalSalvaje){
+        boolean menuInteraccion=true;
+        while(menuInteraccion){
+            int acciones=Veterinaria.ingresarEntero("Seleccione una de las siguientes opciones que quiere que haga "+animalSalvaje.getNombre()+"\n1.Dormir \n2.Comer \n3.comportamientos instintivos \n4.Volver al menú principal\n");
+
+            switch (acciones) {
+                case 1:
+                    animalSalvaje.dormir(); 
+                    break;
+                case 2:
+                    animalSalvaje.comer();
+                    break;
+                case 3:
+                    animalSalvaje.comportamientoInstintivo();
+                case 4:
+                    menuInteraccion=false;
+                    Veterinaria.mostrarMensaje("Volviendo al menú principal...");
+                    break;
+                default:
+                    Veterinaria.mostrarMensaje("Error, ingrese una opción válida");
+                    break;
+            }
+        }
     }
 }
+    
+

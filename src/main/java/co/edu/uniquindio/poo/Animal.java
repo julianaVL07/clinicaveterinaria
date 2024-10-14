@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo;
 
-public class Animal {
+public abstract class Animal {
 
     public String nombre;
     public int edad;
@@ -43,12 +43,12 @@ public class Animal {
         this.peso = peso;
     }
 
-    public static void comer(String animal, String nombre, String alimento){
-        System.out.println("\nEl animal: "+animal+ " con nombre "+nombre+ " está comiendo " + alimento);
+
+    public abstract void comer();
+    
+
+    public static void dormir(){
+        Veterinaria.mostrarMensaje("Los animales duermen a las 10PM");
     }
 
-    public static void dormir(String animal, String nombre,String dormir){
-        System.out.println("\nEl animal: "+animal+" con nombre "+nombre+" duerme alrededor de "+dormir);
-
-    }
 }

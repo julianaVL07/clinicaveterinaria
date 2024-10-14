@@ -10,6 +10,8 @@ public class Perro extends AnimalDomestico {
         super(nombre, edad, peso, fechaNacimiento);
         this.raza = raza;
         this.dueno = dueno;
+        assert !nombre.isBlank();
+        assert !raza.isBlank();
     }
 
     public String getRaza() {
@@ -34,4 +36,13 @@ public class Perro extends AnimalDomestico {
                 + fechaNacimiento + ", dueño=" + dueno.getNombre();
     } 
     
+    @Override
+    public void comer(){
+        Veterinaria.mostrarMensaje("El perro come a las 12Pm");
+    }
+
+    @Override
+    public void cuidadosFrecuentes(){
+        Veterinaria.mostrarMensaje("El perro necesita que le den paseos y lo bañen");
+    }
 }
